@@ -11,19 +11,19 @@ socket.on('init', (game) => {
 });
 
 socket.on('start', (game) => {
-  status.textContent = `Player ${game.currentPlayer === 1 ? 'O' : 'X'}'s turn`;
+  status.textContent = `Es el turno del Jugador ${game.currentPlayer === 1 ? 'O' : 'X'}`;
 });
 
 socket.on('update', (game) => {
   updateBoard(game);
   if (game.winner) {
     if (game.winner === 'draw') {
-      status.textContent = "It's a draw!";
+      status.textContent = "Es un empate!";
     } else {
-      status.textContent = `Player ${game.winner === 'O' ? 'O' : 'X'} wins!`;
+      status.textContent = `Jugador ${game.winner === 'O' ? 'O' : 'X'} gana!`;
     }
   } else {
-    status.textContent = `Player ${game.currentPlayer === 1 ? 'O' : 'X'}'s turn`;
+    status.textContent = `Es el turno del Jugador ${game.currentPlayer === 1 ? 'O' : 'X'}`;
   }
 });
 
